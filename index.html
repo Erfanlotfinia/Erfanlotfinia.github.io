@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erfan | Portfolio</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='Inter, sans-serif' font-size='50' font-weight='bold' fill='white'>E</text></svg>">
+    <title>Erfan Lotfi | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='Inter, sans-serif' font-size='50' font-weight='bold' fill='white'>EL</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -40,6 +40,44 @@
             background-color: #2563eb; /* blue-600 */
             color: #ffffff;
         }
+        /* Add fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Loading state for images */
+        .image-loading {
+            position: relative;
+            background: linear-gradient(-90deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+            background-size: 200% 100%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
     </style>
 </head>
 
@@ -48,11 +86,12 @@
     <!-- Header -->
     <header class="fixed w-full z-10 bg-gray-950/80 backdrop-blur-sm border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Erfan</a>
+            <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Erfan Lotfi</a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
                 <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
                 <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors">Experience</a>
+                <a href="#education" class="text-gray-300 hover:text-blue-400 transition-colors">Education</a>
                 <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
             </nav>
@@ -65,6 +104,7 @@
             <a href="#home" class="block py-3 px-6 text-sm hover:bg-gray-800">Home</a>
             <a href="#about" class="block py-3 px-6 text-sm hover:bg-gray-800">About</a>
             <a href="#experience" class="block py-3 px-6 text-sm hover:bg-gray-800">Experience</a>
+            <a href="#education" class="block py-3 px-6 text-sm hover:bg-gray-800">Education</a>
             <a href="#projects" class="block py-3 px-6 text-sm hover:bg-gray-800">Projects</a>
             <a href="#contact" class="block py-3 px-6 text-sm hover:bg-gray-800">Contact</a>
         </div>
@@ -75,10 +115,10 @@
         <section id="home" class="min-h-screen flex items-center bg-grid-gray-800/[0.2]">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
-                    Software Engineer
+                    BACKEND DEVELOPER
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
-                    Welcome to my portfolio. I build things for the web.
+                    I am a Backend Developer with 2 years of experience designing, building, and deploying applications using Python (FastAPI, Django) and Golang (Gin).
                 </p>
                 <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
                     Get In Touch
@@ -92,31 +132,42 @@
                  <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
                 <div class="flex flex-col md:flex-row items-start gap-12">
                     <div class="md:w-1/3 flex-shrink-0">
-                        <img src="https://placehold.co/400x400/1f2937/ffffff?text=Erfan" alt="Erfan" class="rounded-lg shadow-2xl mx-auto">
+                        <img src="https://placehold.co/400x400/1f2937/ffffff?text=EL" alt="Erfan Lotfi" class="rounded-lg shadow-2xl mx-auto">
                     </div>
                     <div class="md:w-2/3">
-                        <h3 class="text-3xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Software Engineer</h3>
+                        <h3 class="text-3xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">SUMMARY</h3>
                         <p class="text-gray-400 mb-6 leading-relaxed">
-                            I am a passionate software engineer with experience in building web applications. I enjoy solving problems and learning new technologies.
+                            I am a Backend Developer with 2 years of experience designing, building, and deploying applications using Python (FastAPI, Django) and Golang (Gin). Proven expertise in developing advanced AI-powered chatbots with LLMs like Google Gemini and ChatGPT and DeepSeek via LangChain. Adept at architecting robust systems with modern technologies including PostgreSQL, Redis, Qdrant, WebSockets, and gRPC.
                         </p>
                         <h4 class="text-xl font-semibold mb-4 text-white">Core Competencies</h4>
                         <div id="skills-container" class="overflow-hidden transition-all duration-500 ease-in-out max-h-24">
                             <div class="flex flex-wrap gap-3">
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">JavaScript</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">React</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Node.js</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">HTML</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">CSS</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Python</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">FastAPI</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Django</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Gin</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RAG & WebScraping</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">PostgreSQL</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Redis</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Qdrant</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RESTful</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">gRPC</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">WebSockets</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Docker</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RabbitMQ</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Git</span>
                             </div>
                         </div>
                         <button id="toggle-skills-btn" class="text-blue-400 hover:underline mt-4 font-medium text-sm flex items-center gap-1">
                             <span id="toggle-skills-text">Show more</span>
                             <i id="toggle-skills-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
                         </button>
+
+                        <h4 class="text-xl font-semibold mb-4 mt-8 text-white">Languages</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">English (Intermediate)</span>
+                            <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Arabic (Basic)</span>
+                            <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Spanish (Basic)</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,35 +181,54 @@
                     <!-- Timeline Item 1 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">YYYY - YYYY</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Job Title</h3>
-                        <p class="text-blue-400 font-medium">Company Name</p>
+                        <p class="font-semibold text-gray-500 text-sm">2025–2026 (9 MONTHS)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Backend Developer</h3>
+                        <p class="text-blue-400 font-medium">GAM Holding</p>
                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                            <li>Responsibility or achievement 1.</li>
-                            <li>Responsibility or achievement 2.</li>
-                            <li>Responsibility or achievement 3.</li>
+                            <li>Architected and developed Homino Safe backend application using FastAPI, with TimeScaleDB for data persistence and Redis for caching.</li>
+                            <li>Engineered an intelligent conversational AI chatbot using open-source LLM and prompt engineering via LangChain, for giving patients advice.</li>
+                            <li>Designed and implemented Asphaltino backend using Golang (Gin) as a microservice; implemented gRPC and RESTful APIs for client-server operations; and used MQTT protocol to receive data from sensors.</li>
                         </ul>
                     </div>
                     <!-- Timeline Item 2 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">YYYY - YYYY</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Job Title</h3>
-                        <p class="text-blue-400 font-medium">Company Name</p>
+                        <p class="font-semibold text-gray-500 text-sm">2024–2025 (1 YEAR)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Junior Backend Developer</h3>
+                        <p class="text-blue-400 font-medium">Rabin Pay</p>
                          <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                            <li>Responsibility or achievement 1.</li>
-                            <li>Responsibility or achievement 2.</li>
+                            <li>Developed a LLM assistant to automate natural language to SQL translation for generating complex queries.</li>
+                            <li>Built and maintained scalable data pipelines using FastAPI to handle data ingestion, transformation (filtering, aggregation), and API-based delivery for analytics dashboards.</li>
+                            <li>Applied machine learning models and statistical analysis techniques to automate the generation of business intelligence reports, providing key insights to stakeholders.</li>
                         </ul>
                     </div>
                     <!-- Timeline Item 3 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">YYYY - YYYY</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Job Title</h3>
-                        <p class="text-blue-400 font-medium">Company Name</p>
+                        <p class="font-semibold text-gray-500 text-sm">2021 (3 MONTHS)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Data Scientist Intern</h3>
+                        <p class="text-blue-400 font-medium">IUST</p>
                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                           <li>Responsibility or achievement 1.</li>
-                           <li>Responsibility or achievement 2.</li>
+                           <li>Executed an end-to-end data science project, from web scraping and data cleaning with Pandas to performing statistical analysis and training predictive models.</li>
+                           <li>Contributed to a research project by preprocessing large datasets and identifying key features for model training, improving prediction accuracy by 15%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Education</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="font-semibold text-gray-500 text-sm">2021–Present</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Bachelor of Industrial Engineering</h3>
+                        <p class="text-blue-400 font-medium">Elmosanaat University</p>
+                        <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
+                            <li>GPA: 17.03</li>
                         </ul>
                     </div>
                 </div>
@@ -166,114 +236,48 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-gray-900">
+        <section id="projects" class="py-24 bg-gray-950">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
-                
-                <!-- Project Tabs -->
-                <div id="project-tabs" class="flex justify-center mb-12 space-x-2 md:space-x-4 bg-gray-950 p-2 rounded-lg max-w-md mx-auto">
-                    <button data-target="featured-projects" class="project-tab active w-full text-center font-medium px-4 py-2 rounded-md transition-colors duration-300">Featured</button>
-                    <button data-target="software-projects" class="project-tab w-full text-center font-medium px-4 py-2 rounded-md transition-colors duration-300 text-gray-400 hover:bg-gray-800">Software & AI</button>
-                    <button data-target="iot-projects" class="project-tab w-full text-center font-medium px-4 py-2 rounded-md transition-colors duration-300 text-gray-400 hover:bg-gray-800">IoT & Hardware</button>
-                </div>
-
-                <!-- Projects Grids -->
-                <div class="max-w-5xl mx-auto">
-                    <!-- Featured Projects Grid -->
-                    <div id="featured-projects" class="project-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Project 1</h3>
-                            <p class="text-gray-400 mb-4 flex-grow">A brief description of your project. What problem does it solve? What technologies were used?</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Project 2</h3>
-                            <p class="text-gray-400 mb-4 flex-grow">A brief description of your project. What problem does it solve? What technologies were used?</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                         <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Project 3</h3>
-                            <p class="text-gray-400 mb-4 flex-grow">A brief description of your project. What problem does it solve? What technologies were used?</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                         <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Project 4</h3>
-                            <p class="text-gray-400 mb-4 flex-grow">A brief description of your project. What problem does it solve? What technologies were used?</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Software Projects Grid -->
-                    <div id="software-projects" class="project-grid hidden grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-xl font-bold mb-2 text-white">Software Project 1</h3>
-                            <p class="text-gray-400 mb-4 flex-grow text-sm">A brief description of your project.</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-xl font-bold mb-2 text-white">Software Project 2</h3>
-                            <p class="text-gray-400 mb-4 flex-grow text-sm">A brief description of your project.</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- IoT Projects Grid -->
-                    <div id="iot-projects" class="project-grid hidden grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-xl font-bold mb-2 text-white">Hardware Project 1</h3>
-                            <p class="text-gray-400 mb-4 flex-grow text-sm">A brief description of your project.</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                        <div class="bg-gray-950 border border-gray-800 rounded-lg p-6 flex flex-col hover:border-blue-500 transition-colors">
-                            <h3 class="text-xl font-bold mb-2 text-white">Hardware Project 2</h3>
-                            <p class="text-gray-400 mb-4 flex-grow text-sm">A brief description of your project.</p>
-                            <a href="#" target="_blank" class="text-blue-400 hover:underline mt-auto font-medium">View on GitHub &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-center text-gray-400">My projects will be listed here soon.</p>
             </div>
         </section>
 
         <!-- Patents Section -->
-        <section id="patents" class="py-24 bg-gray-950">
+        <section id="patents" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
                  <h2 class="text-4xl font-bold mb-10">Patents</h2>
-                 <div class="max-w-3xl mx-auto bg-gray-900 border border-gray-800 rounded-lg p-8 shadow-lg text-left flex items-center gap-6">
-                    <div class="flex-shrink-0">
-                        <i data-lucide="award" class="w-12 h-12 text-blue-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Patent Title</h3>
-                        <p class="text-gray-400 mt-2">A brief description of the patent.</p>
-                        <span class="inline-block bg-gray-800 text-blue-300 text-sm font-medium px-3 py-1 rounded-full mt-4">Status</span>
-                    </div>
-                </div>
+                 <p class="text-center text-gray-400">Information about patents will be listed here.</p>
             </div>
         </section>
 
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-gray-900">
+        <section id="contact" class="py-24 bg-gray-950">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
-                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">I'm currently available for new opportunities and collaborations. If you have a project in mind or just want to connect, I'd be glad to hear from you.</p>
-                <a href="mailto:email@example.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 mb-10">
-                    email@example.com
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">I'm currently available for new opportunities and collaborations. If you have a project in mind or just want to connect, I'd be glad to hear from you. <br> You can reach me at <span class="text-blue-400">09014743922</span> or find me in <span class="text-blue-400">Tehran, TehranPars</span>.</p>
+                <a href="mailto:Erfanlotfiniya1382@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 mb-10">
+                    Erfanlotfiniya1382@gmail.com
                 </a>
                 <div class="flex justify-center space-x-6">
-                    <a href="#" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                    <a href="https://github.com/Erfanfalco" target="_blank" class="text-gray-500 hover:text-white transition-colors">
                         <i data-lucide="github" class="w-7 h-7"></i>
-                    </a>
-                    <a href="#" target="_blank" class="text-gray-500 hover:text-white transition-colors">
-                        <i data-lucide="linkedin" class="w-7 h-7"></i>
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
     <!-- Footer -->
     <footer class="bg-gray-950 py-6 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
-            <p>&copy; 2025 Erfan. All Rights Reserved.</p>
+            <p>&copy; 2024 Erfan Lotfi. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -281,13 +285,72 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Mobile menu toggle
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in class to sections and observe them
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+
+        // Scroll to top functionality
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu optimization
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
+        let isMenuOpen = false;
+
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
             mobileMenu.classList.toggle('hidden');
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+        };
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                toggleMenu();
+            }
         });
-        
+
+        // Image loading states
+        document.querySelectorAll('img').forEach(img => {
+            img.classList.add('image-loading');
+            img.addEventListener('load', () => {
+                img.classList.remove('image-loading');
+            });
+        });
+
         // Project Tabs Functionality
         const tabsContainer = document.getElementById('project-tabs');
         const projectTabs = document.querySelectorAll('.project-tab');
@@ -339,7 +402,6 @@
                 toggleSkillsIcon.style.transform = 'rotate(0deg)';
             }
         });
-
 
         // Close mobile menu and smooth scroll
         const allLinks = document.querySelectorAll('#mobile-menu a, nav a');
