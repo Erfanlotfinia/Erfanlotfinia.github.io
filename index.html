@@ -2,18 +2,20 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erfan Lotfi | Portfolio</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='Inter, sans-serif' font-size='50' font-weight='bold' fill='white'>EL</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #030712; /* A deeper gray-950 */
         }
+
         /* Custom styles for the timeline */
         .timeline-item {
             position: relative;
@@ -21,10 +23,12 @@
             padding-bottom: 2.5rem;
             border-left: 2px solid #1f2937; /* gray-800 */
         }
+
         .timeline-item:last-child {
             border-left: 2px solid transparent;
             padding-bottom: 0;
         }
+
         .timeline-dot {
             position: absolute;
             left: -0.625rem; /* Adjust to center the dot on the line */
@@ -35,25 +39,37 @@
             border-radius: 9999px;
             border: 3px solid #030712; /* bg-gray-950 */
         }
+
         /* Styles for active/inactive project tabs */
         .project-tab.active {
             background-color: #2563eb; /* blue-600 */
             color: #ffffff;
         }
+
         /* Add fade-in animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         /* Scroll to top button */
         .scroll-to-top {
             position: fixed;
@@ -63,10 +79,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
+
         .scroll-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
+
         /* Loading state for images */
         .image-loading {
             position: relative;
@@ -74,9 +92,15 @@
             background-size: 200% 100%;
             animation: pulse 1.5s ease-in-out infinite;
         }
+
         @keyframes pulse {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
     </style>
 </head>
@@ -86,7 +110,7 @@
     <!-- Header -->
     <header class="fixed w-full z-10 bg-gray-950/80 backdrop-blur-sm border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Erfan Lotfi</a>
+            <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">ERFAN LOTFI</a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a>
                 <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
@@ -118,7 +142,7 @@
                     BACKEND DEVELOPER
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
-                    I am a Backend Developer with 2 years of experience designing, building, and deploying applications using Python (FastAPI, Django) and Golang (Gin).
+                    Backend Developer with almost 3 years of experience designing, building, and deploying platforms using Python (FastAPI, Django) and Golang (Gin). Proven expertise building AI-powered systems (RAG, LangChain/LlamaIndex) and scalable backend architectures.
                 </p>
                 <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
                     Get In Touch
@@ -129,32 +153,56 @@
         <!-- About Section -->
         <section id="about" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
-                 <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
+                <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
                 <div class="flex flex-col md:flex-row items-start gap-12">
                     <div class="md:w-1/3 flex-shrink-0">
-                        <img src="https://placehold.co/400x400/1f2937/ffffff?text=EL" alt="Erfan Lotfi" class="rounded-lg shadow-2xl mx-auto">
+                        <img src="https://placehold.co/400x400/1f2937/ffffff?text=EL" alt="Erfan Lotfi" class="rounded-lg shadow-2xl mx-auto image-loading">
                     </div>
                     <div class="md:w-2/3">
                         <h3 class="text-3xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">SUMMARY</h3>
                         <p class="text-gray-400 mb-6 leading-relaxed">
-                            I am a Backend Developer with 2 years of experience designing, building, and deploying applications using Python (FastAPI, Django) and Golang (Gin). Proven expertise in developing advanced AI-powered chatbots with LLMs like Google Gemini and ChatGPT and DeepSeek via LangChain. Adept at architecting robust systems with modern technologies including PostgreSQL, Redis, Qdrant, WebSockets, and gRPC.
+                            Backend Developer with almost 3 years of experience designing, building, and deploying platforms using Python (FastAPI, Django) and Golang (Gin). Proven expertise in developing advanced AI-powered chatbots with LLMs (Google Gemini, ChatGPT) and retrieval-augmented generation (LangChain, LlamaIndex). Adept at architecting robust systems with modern technologies including PostgreSQL, Redis, MongoDB, and Qdrant.
                         </p>
+
                         <h4 class="text-xl font-semibold mb-4 text-white">Core Competencies</h4>
                         <div id="skills-container" class="overflow-hidden transition-all duration-500 ease-in-out max-h-24">
                             <div class="flex flex-wrap gap-3">
+                                <!-- Languages -->
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Python</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Golang</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">C++</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">SQL</span>
+
+                                <!-- Frameworks & RAG -->
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">FastAPI</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Flask</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Django</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Gin</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RAG & WebScraping</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RAG (LangChain, LlamaIndex)</span>
+
+                                <!-- Databases -->
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">PostgreSQL</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">MySQL</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">MongoDB</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">ClickHouse</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Redis</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Qdrant</span>
+
+                                <!-- Networking / Messaging / Infra -->
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RESTful</span>
-                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">gRPC</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">WebSockets</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">gRPC</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Docker</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Kubernetes</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Jenkins</span>
+
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">RabbitMQ</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Pulsar</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">MQTT</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">NATS</span>
+
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Linux</span>
                                 <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Git</span>
+                                <span class="bg-gray-800 border border-gray-700 text-sm font-medium px-4 py-2 rounded-md">Bash</span>
                             </div>
                         </div>
                         <button id="toggle-skills-btn" class="text-blue-400 hover:underline mt-4 font-medium text-sm flex items-center gap-1">
@@ -176,41 +224,44 @@
         <!-- Experience Section -->
         <section id="experience" class="py-24 bg-gray-950">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-16">Professional Experience</h2>
+                <h2 class="text-4xl font-bold text-center mb-16">Work Experience</h2>
                 <div class="max-w-3xl mx-auto">
-                    <!-- Timeline Item 1 -->
+                    <!-- GAM Holding: 2025-2026 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">2025–2026 (9 MONTHS)</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Backend Developer</h3>
+                        <p class="font-semibold text-gray-500 text-sm">2025–2026 (11 MONTH)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Backend & AI Developer</h3>
                         <p class="text-blue-400 font-medium">GAM Holding</p>
                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                            <li>Architected and developed Homino Safe backend application using FastAPI, with TimeScaleDB for data persistence and Redis for caching.</li>
-                            <li>Engineered an intelligent conversational AI chatbot using open-source LLM and prompt engineering via LangChain, for giving patients advice.</li>
-                            <li>Designed and implemented Asphaltino backend using Golang (Gin) as a microservice; implemented gRPC and RESTful APIs for client-server operations; and used MQTT protocol to receive data from sensors.</li>
+                            <li>Architected and developed Homino Safe backend application using FastAPI, TimeScaleDB for time-series persistence and Redis for caching.</li>
+                            <li>Integrated Pulsar for notifications and Synapse-Matrix for chat; implemented OAuth2 authentication flows.</li>
+                            <li>Engineered conversational AI solutions using open-source LLMs and prompt engineering (LangChain) to provide patient-facing advice.</li>
+                            <li>Designed Asphaltino microservice using Go (Gin), exposing gRPC and REST endpoints and using MQTT to receive sensor data.</li>
                         </ul>
                     </div>
-                    <!-- Timeline Item 2 -->
+
+                    <!-- Rabin Pay: 2024-2025 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">2024–2025 (1 YEAR)</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Junior Backend Developer</h3>
+                        <p class="font-semibold text-gray-500 text-sm">2024–2025 (1.4 YEAR)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Backend Developer</h3>
                         <p class="text-blue-400 font-medium">Rabin Pay</p>
-                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                            <li>Developed a LLM assistant to automate natural language to SQL translation for generating complex queries.</li>
-                            <li>Built and maintained scalable data pipelines using FastAPI to handle data ingestion, transformation (filtering, aggregation), and API-based delivery for analytics dashboards.</li>
-                            <li>Applied machine learning models and statistical analysis techniques to automate the generation of business intelligence reports, providing key insights to stakeholders.</li>
+                        <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
+                            <li>Developed an LLM assistant to translate natural language to SQL for complex query generation and analysis.</li>
+                            <li>Built and maintained scalable FastAPI pipelines for ingestion, transformation, aggregation, and API delivery for analytics dashboards.</li>
+                            <li>Applied data-mining and ML techniques to automate business intelligence report generation for stakeholders.</li>
                         </ul>
                     </div>
-                    <!-- Timeline Item 3 -->
+
+                    <!-- IUST: 2021 -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">2021 (3 MONTHS)</p>
-                        <h3 class="text-xl font-bold mt-1 text-white">Data Scientist Intern</h3>
+                        <p class="font-semibold text-gray-500 text-sm">2021 (6 MONTH)</p>
+                        <h3 class="text-xl font-bold mt-1 text-white">Data Scientist</h3>
                         <p class="text-blue-400 font-medium">IUST</p>
                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                           <li>Executed an end-to-end data science project, from web scraping and data cleaning with Pandas to performing statistical analysis and training predictive models.</li>
-                           <li>Contributed to a research project by preprocessing large datasets and identifying key features for model training, improving prediction accuracy by 15%.</li>
+                            <li>Executed end-to-end data science projects: web scraping, cleaning with Pandas, statistical analysis, and model training with NumPy/Scikit-learn.</li>
+                            <li>Preprocessed large datasets and identified features, improving model performance by ~15%.</li>
                         </ul>
                     </div>
                 </div>
@@ -224,11 +275,11 @@
                 <div class="max-w-3xl mx-auto">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <p class="font-semibold text-gray-500 text-sm">2021–Present</p>
+                        <p class="font-semibold text-gray-500 text-sm">2021–2026</p>
                         <h3 class="text-xl font-bold mt-1 text-white">Bachelor of Industrial Engineering</h3>
                         <p class="text-blue-400 font-medium">Elmosanaat University</p>
                         <ul class="mt-3 list-disc list-inside text-gray-400 space-y-2 text-sm">
-                            <li>GPA: 17.03</li>
+                            <li>GPA: 16.03</li>
                         </ul>
                     </div>
                 </div>
@@ -239,27 +290,37 @@
         <section id="projects" class="py-24 bg-gray-950">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
-                <p class="text-center text-gray-400">My projects will be listed here soon.</p>
+                <p class="text-center text-gray-400">My projects will be listed here soon. (GitHub: <a href="https://github.com/Erfanfalco" target="_blank" class="text-blue-400">Main</a> / <a href="#" class="text-blue-400">Edu</a>)</p>
             </div>
         </section>
 
         <!-- Patents Section -->
         <section id="patents" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-4xl font-bold mb-10">Patents</h2>
-                 <p class="text-center text-gray-400">Information about patents will be listed here.</p>
+                <h2 class="text-4xl font-bold mb-10">Patents</h2>
+                <p class="text-center text-gray-400">Information about patents will be listed here.</p>
             </div>
         </section>
-
 
         <!-- Contact Section -->
         <section id="contact" class="py-24 bg-gray-950">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
-                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">I'm currently available for new opportunities and collaborations. If you have a project in mind or just want to connect, I'd be glad to hear from you. <br> You can reach me at <span class="text-blue-400">09014743922</span> or find me in <span class="text-blue-400">Tehran, TehranPars</span>.</p>
-                <a href="mailto:Erfanlotfiniya1382@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 mb-10">
-                    Erfanlotfiniya1382@gmail.com
-                </a>
+                <h2 class="text-4xl font-bold mb-4 text-white">Contact</h2>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    I'm currently available for new opportunities and collaborations. If you have a project in mind or just want to connect, I'd be glad to hear from you.
+                </p>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
+                    <a href="mailto:Erfanlotfiniya1382@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
+                        Erfanlotfiniya1382@gmail.com
+                    </a>
+                    <a href="tel:+989014743922" class="inline-block bg-gray-800 hover:bg-gray-700 text-gray-200 font-medium py-3 px-6 rounded-full transition-all duration-300">
+                        09014743922
+                    </a>
+                </div>
+
+                <p class="text-gray-400 mb-6">Location: <span class="text-blue-400">Tehran, TehranPars</span></p>
+
                 <div class="flex justify-center space-x-6">
                     <a href="https://github.com/Erfanfalco" target="_blank" class="text-gray-500 hover:text-white transition-colors">
                         <i data-lucide="github" class="w-7 h-7"></i>
@@ -277,13 +338,16 @@
     <!-- Footer -->
     <footer class="bg-gray-950 py-6 border-t border-gray-800">
         <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
-            <p>&copy; 2024 Erfan Lotfi. All Rights Reserved.</p>
+            <p>&copy; <span id="footer-year"></span> Erfan Lotfi. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Put current year in footer
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
 
         // Intersection Observer for fade-in animations
         const observerOptions = {
@@ -330,95 +394,112 @@
 
         const toggleMenu = () => {
             isMenuOpen = !isMenuOpen;
-            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu) mobileMenu.classList.toggle('hidden');
             document.body.style.overflow = isMenuOpen ? 'hidden' : '';
         };
 
-        mobileMenuButton.addEventListener('click', toggleMenu);
+        mobileMenuButton && mobileMenuButton.addEventListener('click', toggleMenu);
 
         // Close menu on outside click
         document.addEventListener('click', (e) => {
-            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            if (isMenuOpen && mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                 toggleMenu();
             }
         });
 
         // Image loading states
         document.querySelectorAll('img').forEach(img => {
-            img.classList.add('image-loading');
-            img.addEventListener('load', () => {
+            // If image already loaded (cached), remove loader
+            if (img.complete) {
                 img.classList.remove('image-loading');
-            });
-        });
-
-        // Project Tabs Functionality
-        const tabsContainer = document.getElementById('project-tabs');
-        const projectTabs = document.querySelectorAll('.project-tab');
-        const projectGrids = document.querySelectorAll('.project-grid');
-
-        tabsContainer.addEventListener('click', (e) => {
-            const clickedTab = e.target.closest('button');
-            if (!clickedTab) return;
-
-            // Update active tab style
-            projectTabs.forEach(tab => {
-                tab.classList.remove('active');
-                tab.classList.add('text-gray-400', 'hover:bg-gray-800');
-            });
-            clickedTab.classList.add('active');
-            clickedTab.classList.remove('text-gray-400', 'hover:bg-gray-800');
-            
-            // Hide all grids
-            projectGrids.forEach(grid => {
-                grid.classList.add('hidden');
-            });
-
-            // Show target grid
-            const targetGridId = clickedTab.dataset.target;
-            const targetGrid = document.getElementById(targetGridId);
-            if (targetGrid) {
-                targetGrid.classList.remove('hidden');
+            } else {
+                img.classList.add('image-loading');
+                img.addEventListener('load', () => {
+                    img.classList.remove('image-loading');
+                });
+                img.addEventListener('error', () => {
+                    img.classList.remove('image-loading');
+                });
             }
         });
+
+        // Project Tabs Functionality (guarded if no tabs present)
+        const tabsContainer = document.getElementById('project-tabs');
+        if (tabsContainer) {
+            const projectTabs = document.querySelectorAll('.project-tab');
+            const projectGrids = document.querySelectorAll('.project-grid');
+
+            tabsContainer.addEventListener('click', (e) => {
+                const clickedTab = e.target.closest('button');
+                if (!clickedTab) return;
+
+                // Update active tab style
+                projectTabs.forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.classList.add('text-gray-400', 'hover:bg-gray-800');
+                });
+                clickedTab.classList.add('active');
+                clickedTab.classList.remove('text-gray-400', 'hover:bg-gray-800');
+
+                // Hide all grids
+                projectGrids.forEach(grid => {
+                    grid.classList.add('hidden');
+                });
+
+                // Show target grid
+                const targetGridId = clickedTab.dataset.target;
+                const targetGrid = document.getElementById(targetGridId);
+                if (targetGrid) {
+                    targetGrid.classList.remove('hidden');
+                }
+            });
+        }
 
         // Skills toggle functionality
         const skillsContainer = document.getElementById('skills-container');
         const toggleSkillsBtn = document.getElementById('toggle-skills-btn');
         const toggleSkillsText = document.getElementById('toggle-skills-text');
-        const toggleSkillsIcon = document.getElementById('toggle-skills-icon').querySelector('svg');
+        const toggleSkillsIconWrapper = document.getElementById('toggle-skills-icon');
 
-        toggleSkillsBtn.addEventListener('click', () => {
+        toggleSkillsBtn && toggleSkillsBtn.addEventListener('click', () => {
+            if (!skillsContainer) return;
             const isCollapsed = skillsContainer.classList.contains('max-h-24');
 
             if (isCollapsed) {
                 skillsContainer.classList.remove('max-h-24');
                 skillsContainer.classList.add('max-h-[500px]'); // A large height to reveal all skills
                 toggleSkillsText.textContent = 'Show less';
-                toggleSkillsIcon.style.transform = 'rotate(180deg)';
+                if (toggleSkillsIconWrapper) toggleSkillsIconWrapper.style.transform = 'rotate(180deg)';
             } else {
                 skillsContainer.classList.add('max-h-24');
                 skillsContainer.classList.remove('max-h-[500px]');
                 toggleSkillsText.textContent = 'Show more';
-                toggleSkillsIcon.style.transform = 'rotate(0deg)';
+                if (toggleSkillsIconWrapper) toggleSkillsIconWrapper.style.transform = 'rotate(0deg)';
             }
         });
 
-        // Close mobile menu and smooth scroll
+        // Close mobile menu and smooth scroll for anchor links
         const allLinks = document.querySelectorAll('#mobile-menu a, nav a');
         allLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                if(link.getAttribute('href').startsWith('#')) {
+                const href = link.getAttribute('href') || '';
+                if (href.startsWith('#')) {
                     e.preventDefault();
-                    document.querySelector(link.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        isMenuOpen = false;
+                        document.body.style.overflow = '';
                     }
                 }
             });
         });
     </script>
 </body>
-</html>
 
+</html>
